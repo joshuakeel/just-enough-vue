@@ -10,6 +10,24 @@
   <body>
     <h1>@me chat</h1>
 
+    <div id="app">
+      <ol>
+        <li v-for="chat in chats">
+          <strong>{{ chat.user }}</strong>: {{ chat.message }}
+        </li>
+      </ol>
+
+      <input v-model="message" type="text" />
+
+      <button @click="sendMessage(message)" :disabled="!message" class="button">
+        Send Message
+      </button>
+    </div>
+
     <script src="main.js"></script>
+
+    <script>
+      app.mount("#app");
+    </script>
   </body>
 </html>
